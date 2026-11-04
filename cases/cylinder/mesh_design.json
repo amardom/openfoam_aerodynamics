@@ -1,0 +1,17 @@
+{
+  "diameter": 1,
+  "domain": [
+    -12,
+    25,
+    -12,
+    12
+  ],
+  "blocks": 20,
+  "cells": 280576,
+  "wall_cells": 512,
+  "radial_layers": 100,
+  "radial_expansion_last_over_first": 30,
+  "wake_streamwise_cells": 384,
+  "wake_cross_stream_cells": 128,
+  "note": "Structured quadrilaterals in the plane; one layer of hexahedra in z."
+}

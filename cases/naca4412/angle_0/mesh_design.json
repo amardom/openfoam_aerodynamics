@@ -1,0 +1,39 @@
+{
+  "profile": "NACA 4412",
+  "angle_degrees": 0.0,
+  "rotation_degrees": -0.0,
+  "rotation_centre": [
+    0.25,
+    0
+  ],
+  "wake_centre_y": 0.0,
+  "chord": 1,
+  "thickness_formula_last_coefficient": -0.1015,
+  "trailing_edge": "finite, unmodified",
+  "topology": "17-block C-grid",
+  "exterior_spacing": "straight radial blocks with approximately symmetric upper and lower farfield clustering",
+  "profile_cells_per_side": 210,
+  "normal_cells": 120,
+  "wake_cells": 400,
+  "trailing_edge_cells": 2,
+  "cells": 147200,
+  "normal_grading": [
+    [
+      0.012,
+      24,
+      3
+    ],
+    [
+      0.113,
+      48,
+      2
+    ],
+    [
+      0.875,
+      48,
+      20
+    ]
+  ],
+  "wake_refined_half_width_near_trailing_edge": 1.25,
+  "spanwise_cells": 1
+}
