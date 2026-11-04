@@ -467,11 +467,11 @@ def create_videos(simulation, arguments, output):
         destination.mkdir(exist_ok=True)
         palette = output / (simulation['shape'] + '_palette.png')
         subprocess.run(['ffmpeg', '-y', '-threads', '1', '-i', str(output / (simulation['shape'] + '.mp4')),
-                        '-vf', 'fps=20,scale=640:-1:flags=lanczos,palettegen=max_colors=64',
+                        '-vf', 'fps=20,scale=400:-1:flags=lanczos,palettegen=max_colors=32',
                         '-frames:v', '1', '-threads', '1', str(palette)], check=True)
         subprocess.run(['ffmpeg', '-y', '-threads', '1', '-i', str(output / (simulation['shape'] + '.mp4')),
                         '-i', str(palette), '-filter_complex_threads', '1', '-filter_complex',
-                        '[0:v]fps=20,scale=640:-1:flags=lanczos[v];[v][1:v]paletteuse=dither=bayer:bayer_scale=3',
+                        '[0:v]fps=20,scale=400:-1:flags=lanczos[v];[v][1:v]paletteuse=dither=none',
                         '-loop', '0', str(destination / (simulation['shape'] + '.gif'))], check=True)
         palette.unlink()
 
