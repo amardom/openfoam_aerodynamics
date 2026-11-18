@@ -56,6 +56,32 @@ Laminar flow around a square rotated by 45 degrees, with a corner facing the inl
 
 ![Square: synchronized speed and vorticity](media/square.gif)
 
+## Square at 0 degrees
+
+Laminar flow around a square at 0 degrees, with a flat face facing the inlet. The frontal width is $H=1$, the inlet speed $U_\infty=1$ and the kinematic viscosity $\nu=0.005$: $Re=U_\infty H/\nu=200$. The square is fixed and no-slip; the inlet has fixed velocity, the outlet fixed pressure, and the upper and lower boundaries use freestream conditions. No imposed perturbation.
+
+| Numerical method | Setting |
+| --- | --- |
+| Mesh | 280,576 quadrilateral cells; 512 wall faces and 100 normal layers; one cell across the empty span |
+| Domain | $x/H\in[-12,25]$, $y/H\in[-12,12]$ |
+| Time integration | Second-order backward |
+| Convection | linearUpwind |
+| Diffusion | Central differencing with non-orthogonal correction |
+| Pressure-velocity coupling | PIMPLE: 2 outer iterations, 2 pressure correctors, 1 non-orthogonal corrector (`consistent yes` from the start) |
+| Pressure solver | GAMG with DICGaussSeidel |
+| Time step | Adaptive; maximum Courant number 0.5; maximum step 0.005 s |
+| Duration / saved fields | 60 s / every 0.1 s |
+| Parallel execution | 4 MPI processes |
+
+<table>
+<tr>
+<td width="50%"><img src="media/square_0_mesh_overview.png" alt="Square mesh: full domain" width="100%"></td>
+<td width="50%"><img src="media/square_0_mesh_detail.png" alt="Square mesh: body and corner detail" width="100%"></td>
+</tr>
+</table>
+
+![Square at 0 degrees: synchronized speed and vorticity](media/square_0.gif)
+
 ## NACA 4412, 5 degrees
 
 Laminar flow at $Re=U_\infty c/\nu=200$, with chord $c=1$, $U_\infty=1$ and $\nu=0.005$. The profile is rotated clockwise by 5 degrees about the quarter-chord point, giving a positive angle of attack with horizontal freestream. The airfoil is fixed and no-slip; the inlet has fixed velocity, the outlet fixed pressure, and the upper and lower boundaries use freestream conditions. No imposed perturbation.
@@ -103,4 +129,5 @@ After reconstruction:
 ```sh
 python3 cases/cylinder/postprocess_cylinder.py --readme-gif --fps 20
 python3 cases/cylinder/postprocess_cylinder.py --case cases/square --readme-gif --videos-only --fps 20
+python3 cases/square_0/postprocess_square_0.py --readme-gif --fps 20
 ```

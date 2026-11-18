@@ -1,0 +1,41 @@
+{
+  "shape": "square",
+  "rotation_degrees": 0,
+  "frontal_width": 1,
+  "side_length": 1,
+  "vertices": [
+    [
+      -0.5,
+      -0.5
+    ],
+    [
+      0.5,
+      -0.5
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      -0.5,
+      0.5
+    ]
+  ],
+  "domain": [
+    -12,
+    25,
+    -12,
+    12
+  ],
+  "blocks": 20,
+  "cells": 280576,
+  "wall_cells": 512,
+  "radial_layers": 100,
+  "wake_streamwise_cells": 384,
+  "wake_cross_stream_cells": 128,
+  "reynolds": 200,
+  "reference_length": "frontal width H",
+  "spanwise_cells": 1,
+  "span": 0.1,
+  "wall_tangential_expansion_corner_to_midface": 8
+}
